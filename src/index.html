@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Scrum Panel Prototype</title>
+
+    <script src="js/vendor/angular.min.js"></script>
+</head>
+
+<body>
+    <hr />
+    <div ng-controller="CardController">
+        <h1>{{ card.title }}</h1>
+        <p>by {{ card.team }}</p>
+        <small>{{ card.code }}</small>
+        <p>{{ card.estimate }}</p>
+    </div>
+    <hr />
+
+    <script>
+        function CardController($scope) {
+            $scope.card = {
+                'team'      : 'Mar',
+                'code'      : 'panel 01',
+                'title'     : 'Montar modelo de tarjeta basica',
+                'status'    : 'backlog',
+                'estimate'  : 1
+            }
+        }
+
+    </script>
+</body>
+</html>
