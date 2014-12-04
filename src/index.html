@@ -5,26 +5,57 @@
     <title>Scrum Panel Prototype</title>
 
     <script src="js/vendor/angular.min.js"></script>
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900italic,900,400italic,700italic,300,700,500italic,300italic,400|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <hr />
     <div ng-controller="CardController">
-        <h1>{{ card.title }}</h1>
-        <p>by {{ card.team }}</p>
-        <small>{{ card.code }}</small>
-        <p>{{ card.estimate }}</p>
+        <article class="user-story"  ng-repeat="card in us.cards">
+            <div class="us__header clearfix">
+                <p class="us__project">{{ card.project }}</p>
+                <p class="us__code">{{ card.code }}</p>
+            </div>
+            <div class="us__body clearfix">
+                <h1 class="us__title">{{ card.title }}</h1>
+                <p class="us__description">{{ card.description }}</p>
+
+            </div>
+            <div class="us__footer clearfix">
+                <div class="us__dots">
+                    <span ng-repeat="dot in card.dots" class="is--{{ dot }}"></span>
+                </div>
+                <p class="us__estimate">{{ card.estimate }}</p>
+            </div>
+        </article>
     </div>
-    <hr />
 
     <script>
         function CardController($scope) {
-            $scope.card = {
-                'team'      : 'Mar',
-                'code'      : 'panel 01',
-                'title'     : 'Montar modelo de tarjeta basica',
-                'status'    : 'backlog',
-                'estimate'  : 1
+            $scope.us = {
+                'cards': [
+                    {
+                        'team_logo'     : 'Mar',
+                        'project'       : 'Panel app',
+                        'code'          : 'PA-001',
+                        'title'         : 'Montar modelo de tarjeta basica',
+                        'description'   : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure, ipsa cupiditate, fuga quaerat quo. Pariatur est architecto recusandae deserunt rem, non! Quasi distinctio, dolores sed quod eius veniam laboriosam.',
+                        'status'        : 'backlog',
+                        'estimate'      : 13,
+                        'dots'          : ['backend', 'ui']
+                    },
+                    {
+                        'team_logo'     : 'Mar',
+                        'project'       : 'Panel app',
+                        'code'          : 'PA-001',
+                        'title'         : 'Montar modelo de tarjeta basica',
+                        'description'   : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure, ipsa cupiditate, fuga quaerat quo. Pariatur est architecto recusandae deserunt rem, non! Quasi distinctio, dolores sed quod eius veniam laboriosam.',
+                        'status'        : 'backlog',
+                        'estimate'      : 13,
+                        'dots'          : ['backend', 'ui']
+                    }
+
+                ]
             }
         }
 

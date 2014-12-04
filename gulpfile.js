@@ -23,10 +23,21 @@ var files = {
 
 // INIT GULP ============================================
 var gulp = require('gulp'),
-    // sass = require('gulp-sass');
+    gutil = require('gulp-util'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     plugins = gulpLoadPlugins();
 
+
+// ERROR HANDLEE ========================================
+var exitOnError = false;
+
+
+
+function handleError(err) {
+  var displayErr = gutil.colors.red(err);
+  gutil.log(displayErr);
+  if (exitOnError) process.exit(1);
+}
 
 // WATCH ================================================
 gulp.task('watch', function () {
@@ -37,7 +48,7 @@ gulp.task('watch', function () {
 // CSS ==================================================
 gulp.task('sass', function () {
     gulp.src(files.styles)
-        .pipe(plugins.sass())
+        .pipe(plugins.sass()).on('error', handleError)
         .pipe(gulp.dest(paths.styles.dest));
 });
 
