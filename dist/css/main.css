@@ -19,10 +19,19 @@ h1, h2, h3, h4, h5, h6, p, ul, ol {
 .user-story {
   background: #fff;
   border: 1px solid #cccccc;
+  border: 4px solid transparent;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   margin-bottom: 2rem;
   max-width: 23rem; }
+  .user-story.is--backlog {
+    border-color: red; }
+  .user-story.is--next {
+    border-color: orange; }
+  .user-story.is--doing {
+    border-color: yellow; }
+  .user-story.is--done {
+    border-color: green; }
 
 .us__header, .us__body {
   padding: 0.5rem 0.75rem; }

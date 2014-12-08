@@ -10,9 +10,16 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:500,900italic,900,400italic,700italic,300,700,500italic,300italic,400|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
-    <div ng-controller="CardController">
-        <article class="user-story"  ng-repeat="story in user_stories">
+<body ng-controller="PanelController as panel">
+    <div>
+        <article class="user-story" ng-repeat="story in user_stories"
+            ng-class="{
+                'is--backlog' : storyStatus == 0,
+                'is--next' : storyStatus == 1,
+                'is--doing' : storyStatus == 2,
+                'is--done' : storyStatus == 3
+            }">
+            {{ storyStatus }}
             <div class="us__header clearfix">
                 <p class="us__project">{{ story.project }}</p>
                 <p class="us__code">{{ story.code }}</p>
@@ -20,13 +27,14 @@
             <div class="us__body clearfix">
                 <h1 class="us__title">{{ story.title }}</h1>
                 <p class="us__description">{{ story.description }}</p>
-
             </div>
             <div class="us__footer clearfix">
                 <div class="us__dots">
                     <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
                 </div>
                 <p class="us__estimate">{{ story.estimate }}</p>
+                <button class="btn" ng-click="panel.moveLeft()"><</button>
+                <button class="btn" ng-click="panel.moveRight()">></button>
             </div>
         </article>
     </div>

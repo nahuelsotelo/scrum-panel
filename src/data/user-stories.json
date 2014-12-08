@@ -5,7 +5,7 @@
         "code"          : "PA-001",
         "title"         : "Montar modelo de tarjeta basica",
         "description"   : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure, ipsa cupiditate, fuga quaerat quo. Pariatur est architecto recusandae deserunt rem, non! Quasi distinctio, dolores sed quod eius veniam laboriosam.",
-        "status"        : "backlog",
+        "status"        : 1,
         "estimate"      : 13,
         "dots"          : ["backend", "ui"]
     },
@@ -15,7 +15,7 @@
         "code"          : "PA-001",
         "title"         : "Montar modelo de tarjeta basica",
         "description"   : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure, ipsa cupiditate, fuga quaerat quo. Pariatur est architecto recusandae deserunt rem, non! Quasi distinctio, dolores sed quod eius veniam laboriosam.",
-        "status"        : "backlog",
+        "status"        : 2,
         "estimate"      : 13,
         "dots"          : ["backend", "ui"]
     }

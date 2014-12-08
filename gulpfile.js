@@ -27,7 +27,8 @@ var paths = {
 var files = {
     styles: paths.styles.src + '**/*.scss',
     js: paths.js.src + '**/*.js',
-    index: basePaths.src + 'index.html'
+    index: basePaths.src + 'index.html',
+    data: paths.data.src + '**/*.json'
 };
 
 
@@ -62,7 +63,7 @@ gulp.task('scripts', function() {
         paths.js.src + 'controllers.js'
     ])
     .pipe($.concat('scripts.js'))
-    .pipe(gulp.dest(paths.js.dist))
+    .pipe(gulp.dest(paths.js.dist));
 });
 
 
@@ -81,11 +82,10 @@ gulp.task('browser-sync', function() {
 // WATCH ================================================
 gulp.task('watch', function () {
     gulp.watch(files.styles, ['css']);
-    gulp.watch(files.js, ['scripts']);
-    gulp.watch(files.index, ['copy_index']);
+    gulp.watch(files.js, ['scripts', browserSync.reload]);
+    gulp.watch(files.index, ['copy_index', browserSync.reload]);
+    gulp.watch(files.data, ['copy_data', browserSync.reload]);
 });
-
-
 
 
 // COPY =================================================
