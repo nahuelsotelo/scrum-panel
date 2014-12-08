@@ -1,11 +1,14 @@
-html {
-  box-sizing: border-box; }
-
 *, *:before, *:after {
   box-sizing: inherit; }
 
+html {
+  box-sizing: border-box;
+  font-size: 100%; }
+
 body {
   background: #cccccc;
+  font-size: 100%;
+  line-height: 1.5;
   margin: 0;
   padding: 3rem;
   font-family: 'Roboto', sans-serif; }
@@ -61,7 +64,8 @@ h1, h2, h3, h4, h5, h6, p, ul, ol {
 
 .us__dots {
   float: left;
-  padding: 0.25rem 0.5rem 0; }
+  padding: 0.25rem 0.5rem 0;
+  height: 1.5rem; }
   .us__dots span {
     border: 2px solid #fff;
     border-radius: 50%;

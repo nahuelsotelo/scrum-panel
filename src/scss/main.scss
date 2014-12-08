@@ -1,15 +1,18 @@
 $f-sans:        'Roboto', sans-serif;
 $f-condensed:   'Roboto Condensed', sans-serif;
 $f-slab:        'Roboto Slab', serif;
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
 body {
     background: hsl(100, 0, 80%);
+    font-size: 100%;
+    line-height: 1.5;
     margin: 0;
     padding: 3rem;
     font-family: $f-sans;
@@ -72,6 +75,7 @@ p, ul, ol {
 .us__dots {
     float: left;
     padding: .25rem .5rem 0;
+    height: 1.5rem;
 
     span {
         border: 2px solid #fff;

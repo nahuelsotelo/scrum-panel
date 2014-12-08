@@ -31,7 +31,6 @@ var files = {
 };
 
 
-
 // INIT GULP ============================================
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -66,7 +65,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(paths.js.dist))
 });
 
-// ERROR HANDLER ========================================
+
+// BROWSER SYNC =========================================
 gulp.task('browser-sync', function() {
     browserSync({
         notify: false,
@@ -76,15 +76,6 @@ gulp.task('browser-sync', function() {
         open: 'external'
     });
 });
-
-// WEBSERVER=============================================
-// gulp.task('webserver', function() {
-//     gulp.src('dist')
-//         .pipe($.webserver({
-//             livereload: true,
-//             open: true
-//         }));
-// });
 
 
 // WATCH ================================================
@@ -121,7 +112,6 @@ gulp.task( 'build',
         'watch'
     ],
     function () {
-        // gulp.watch(files.styles, ['css']);
         return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
     }
 );
