@@ -11,32 +11,123 @@
 </head>
 
 <body ng-controller="PanelController as panel">
-    <div>
-        <article class="user-story" ng-repeat="story in user_stories"
-            ng-class="{
-                'is--backlog' : story.status == 0,
-                'is--next' : story.status == 1,
-                'is--doing' : story.status == 2,
-                'is--done' : story.status == 3
-            }">
-            {{ story.status }}
-            <div class="us__header clearfix">
-                <p class="us__project">{{ story.project }}</p>
-                <p class="us__code">{{ story.code }}</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="column col-sm-3">
+                <h2>Backlog</h2>
+
+                <article class="user-story" ng-repeat="story in user_stories | filter: {status: 0}"
+                    ng-class="{
+                        'is--backlog' : story.status == 0,
+                        'is--next' : story.status == 1,
+                        'is--doing' : story.status == 2,
+                        'is--done' : story.status == 3
+                    }">
+                    <div class="us__header clearfix">
+                        <p class="us__project">{{ story.project }}</p>
+                        <p class="us__code">{{ story.code }}</p>
+                    </div>
+                    <div class="us__body clearfix">
+                        <h1 class="us__title">{{ story.title }}</h1>
+                        <p class="us__description">{{ story.description }}</p>
+                    </div>
+                    <div class="us__footer clearfix">
+                        <div class="us__dots">
+                            <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
+                        </div>
+                        <p class="us__estimate">{{ story.estimate }}</p>
+                        <button class="btn" ng-click="moveLeft(story)"><</button>
+                        <button class="btn" ng-click="moveRight(story)">></button>
+                    </div>
+                </article>
             </div>
-            <div class="us__body clearfix">
-                <h1 class="us__title">{{ story.title }}</h1>
-                <p class="us__description">{{ story.description }}</p>
+
+            <div class="column col-sm-3">
+                <h2>Next</h2>
+
+                <article class="user-story" ng-repeat="story in user_stories | filter: {status: 1}"
+                    ng-class="{
+                        'is--backlog' : story.status == 0,
+                        'is--next' : story.status == 1,
+                        'is--doing' : story.status == 2,
+                        'is--done' : story.status == 3
+                    }">
+                    <div class="us__header clearfix">
+                        <p class="us__project">{{ story.project }}</p>
+                        <p class="us__code">{{ story.code }}</p>
+                    </div>
+                    <div class="us__body clearfix">
+                        <h1 class="us__title">{{ story.title }}</h1>
+                        <p class="us__description">{{ story.description }}</p>
+                    </div>
+                    <div class="us__footer clearfix">
+                        <div class="us__dots">
+                            <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
+                        </div>
+                        <p class="us__estimate">{{ story.estimate }}</p>
+                        <button class="btn" ng-click="moveLeft(story)"><</button>
+                        <button class="btn" ng-click="moveRight(story)">></button>
+                    </div>
+                </article>
             </div>
-            <div class="us__footer clearfix">
-                <div class="us__dots">
-                    <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
-                </div>
-                <p class="us__estimate">{{ story.estimate }}</p>
-                <button class="btn" ng-click="moveLeft(story)"><</button>
-                <button class="btn" ng-click="moveRight(story)">></button>
+
+            <div class="column col-sm-3">
+                <h2>Doing</h2>
+                <article class="user-story" ng-repeat="story in user_stories | filter: {status: 2}"
+                    ng-class="{
+                        'is--backlog' : story.status == 0,
+                        'is--next' : story.status == 1,
+                        'is--doing' : story.status == 2,
+                        'is--done' : story.status == 3
+                    }">
+                    <div class="us__header clearfix">
+                        <p class="us__project">{{ story.project }}</p>
+                        <p class="us__code">{{ story.code }}</p>
+                    </div>
+                    <div class="us__body clearfix">
+                        <h1 class="us__title">{{ story.title }}</h1>
+                        <p class="us__description">{{ story.description }}</p>
+                    </div>
+                    <div class="us__footer clearfix">
+                        <div class="us__dots">
+                            <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
+                        </div>
+                        <p class="us__estimate">{{ story.estimate }}</p>
+                        <button class="btn" ng-click="moveLeft(story)"><</button>
+                        <button class="btn" ng-click="moveRight(story)">></button>
+                    </div>
+                </article>
             </div>
-        </article>
+
+            <div class="column col-sm-3">
+                <h2>Done</h2>
+
+                <article class="user-story" ng-repeat="story in user_stories | filter: {status: 3}"
+                    ng-class="{
+                        'is--backlog' : story.status == 0,
+                        'is--next' : story.status == 1,
+                        'is--doing' : story.status == 2,
+                        'is--done' : story.status == 3
+                    }">
+                    <div class="us__header clearfix">
+                        <p class="us__project">{{ story.project }}</p>
+                        <p class="us__code">{{ story.code }}</p>
+                    </div>
+                    <div class="us__body clearfix">
+                        <h1 class="us__title">{{ story.title }}</h1>
+                        <p class="us__description">{{ story.description }}</p>
+                    </div>
+                    <div class="us__footer clearfix">
+                        <div class="us__dots">
+                            <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
+                        </div>
+                        <p class="us__estimate">{{ story.estimate }}</p>
+                        <button class="btn" ng-click="moveLeft(story)"><</button>
+                        <button class="btn" ng-click="moveRight(story)">></button>
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
 </body>
 </html>

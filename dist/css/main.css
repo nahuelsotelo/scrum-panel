@@ -16,6 +16,13 @@ body {
 h1, h2, h3, h4, h5, h6, p, ul, ol {
   margin-top: 0; }
 
+.column {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid rgba(0, 0, 0, 0.6);
+  min-height: 40rem; }
+  .column:first-of-type {
+    border: 0; }
+
 .user-story {
   background: #fff;
   border: 1px solid #cccccc;

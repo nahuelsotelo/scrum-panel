@@ -22,6 +22,18 @@ p, ul, ol {
     margin-top: 0;
 }
 
+// COLUMNS
+.column {
+    background: rgba(0,0,0,.3);
+    border-left: 2px solid rgba(0,0,0,.6);
+    min-height: 40rem;
+
+    &:first-of-type {
+        border: 0;
+    }
+}
+
+// STORIES
 .user-story {
     background: #fff;
     border: 1px solid hsl(100, 0, 80%);
