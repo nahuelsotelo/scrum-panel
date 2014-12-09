@@ -14,12 +14,12 @@
     <div>
         <article class="user-story" ng-repeat="story in user_stories"
             ng-class="{
-                'is--backlog' : storyStatus == 0,
-                'is--next' : storyStatus == 1,
-                'is--doing' : storyStatus == 2,
-                'is--done' : storyStatus == 3
+                'is--backlog' : story.status == 0,
+                'is--next' : story.status == 1,
+                'is--doing' : story.status == 2,
+                'is--done' : story.status == 3
             }">
-            {{ storyStatus }}
+            {{ story.status }}
             <div class="us__header clearfix">
                 <p class="us__project">{{ story.project }}</p>
                 <p class="us__code">{{ story.code }}</p>
@@ -33,8 +33,8 @@
                     <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
                 </div>
                 <p class="us__estimate">{{ story.estimate }}</p>
-                <button class="btn" ng-click="panel.moveLeft()"><</button>
-                <button class="btn" ng-click="panel.moveRight()">></button>
+                <button class="btn" ng-click="moveLeft(story)"><</button>
+                <button class="btn" ng-click="moveRight(story)">></button>
             </div>
         </article>
     </div>

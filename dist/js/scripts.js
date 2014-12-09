@@ -222,16 +222,14 @@ panelApp.controller('PanelController', ['$scope', '$http', function($scope, $htt
         $scope.user_stories = data;
     });
 
-    $scope.storyStatus = 0;
-
-    this.moveLeft = function(){
-        if($scope.storyStatus > 0) {
-            $scope.storyStatus = $scope.storyStatus - 1;
+    $scope.moveLeft = function(story){
+        if(story.status > 0) {
+            story.status = story.status - 1;
         }
     };
-    this.moveRight = function(){
-        if($scope.storyStatus < 3) {
-            $scope.storyStatus = $scope.storyStatus + 1;
+    $scope.moveRight = function(story){
+        if(story.status < 3) {
+            story.status = story.status + 1;
         }
     }
 }]);
