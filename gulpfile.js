@@ -59,6 +59,7 @@ gulp.task('css', function () {
 gulp.task('scripts', function() {
     gulp.src([
         paths.js.src + 'vendor/angular.min.js',
+        paths.js.src + 'vendor/angular-resource.js',
         paths.js.src + 'app.js',
         paths.js.src + 'controllers.js'
     ])

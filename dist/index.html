@@ -65,7 +65,7 @@
                             <span ng-repeat="dot in story.dots" class="is--{{ dot }}"></span>
                         </div>
                         <p class="us__estimate">{{ story.estimate }}</p>
-                        <button class="btn" ng-click="moveLeft(story)"><</button>
+                        <button class="btn" ng-click="story.moveLeft()"><</button>
                         <button class="btn" ng-click="moveRight(story)">></button>
                     </div>
                 </article>

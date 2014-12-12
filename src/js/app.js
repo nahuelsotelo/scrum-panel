@@ -1,1 +1,1 @@
-var panelApp = angular.module('panelApp', []);
+var panelApp = angular.module('panelApp', ['ngResource']);
